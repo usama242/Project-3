@@ -6,7 +6,6 @@ const apiKey = "&appid=b6232ab2c87965900584ea9de4086de9";
 //Get the date
 let d = new Date();
 let newDate = d.getMonth() + "." + d.getDate() + "." + d.getFullYear();
-console.log(newDate);
 // Event listener
 document.getElementById("generate").addEventListener("click", (e) => {
   e.preventDefault();

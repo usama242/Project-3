@@ -23,7 +23,12 @@
       </div>
       <div class="holder zip input-field">
         <label for="city">Enter city here</label>
-        <input type="text" id="city" placeholder="enter city name here" />
+        <input
+          type="text"
+          class="autocomplete"
+          id="city"
+          placeholder="enter city name here"
+        />
       </div>
       <div class="holder feel input-field">
         <label for="feelings">How are you feeling today?</label>
@@ -39,23 +44,23 @@
         </button>
       </div>
       <div class="holder entry">
-        <div class="title"><h5>Most Recent Entry</h5></div>
+        <div class="title center-align"><h5>Most Recent Entry</h5></div>
         <div id="entryHolder">
           <div class="row">
-            <div class="col m6">
+            <div class="col m6 center-align">
               <p id="date" class="flow-text"></p>
             </div>
-            <div class="col m6">
+            <div class="col m6 center-align">
               <p id="temp" class="flow-text"></p>
             </div>
           </div>
-          <div>
-            <p id="content" class="flow-text"></p>
+          <div class="container">
+            <p id="content" class="flow-text align-left"></p>
           </div>
         </div>
       </div>
     </div>
-    <script src="app.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="app.js" type="text/javascript"></script>
   </body>
 </html>
