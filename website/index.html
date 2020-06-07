@@ -8,6 +8,10 @@
       rel="stylesheet"
     />
     <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
@@ -18,8 +22,8 @@
         <h3 class="center-align">Weather Journal App</h3>
       </div>
       <div class="holder zip input-field">
-        <label for="zip">Enter Zipcode here</label>
-        <input type="text" id="zip" placeholder="enter zip code here" />
+        <label for="city">Enter city here</label>
+        <input type="text" id="city" placeholder="enter city name here" />
       </div>
       <div class="holder feel input-field">
         <label for="feelings">How are you feeling today?</label>
@@ -37,9 +41,17 @@
       <div class="holder entry">
         <div class="title"><h5>Most Recent Entry</h5></div>
         <div id="entryHolder">
-          <div><p id="date" class="flow-text"></p></div>
-          <div><p id="temp" class="flow-text"></p></div>
-          <div><p id="content" class="flow-text"></p></div>
+          <div class="row">
+            <div class="col m6">
+              <p id="date" class="flow-text"></p>
+            </div>
+            <div class="col m6">
+              <p id="temp" class="flow-text"></p>
+            </div>
+          </div>
+          <div>
+            <p id="content" class="flow-text"></p>
+          </div>
         </div>
       </div>
     </div>

@@ -1,30 +1,30 @@
 // Base URL and API Key for OpenWeatherMap API
-const baseURL = "http://api.openweathermap.org/data/2.5/weather?zip=";
+const baseURL = "http://api.openweathermap.org/data/2.5/weather?q=";
 const units = "&units=metric";
 const apiKey = "&appid=b6232ab2c87965900584ea9de4086de9";
 
 //Get the date
 let d = new Date();
 let newDate = d.getMonth() + "." + d.getDate() + "." + d.getFullYear();
-
+console.log(newDate);
 // Event listener
 document.getElementById("generate").addEventListener("click", (e) => {
   e.preventDefault();
-  const newZip = document.getElementById("zip").value;
+  const newCity = document.getElementById("city").value;
   const content = document.getElementById("feelings").value;
 
-  getWeather(baseURL, newZip, units, apiKey)
+  getWeather(baseURL, newCity, units, apiKey)
     .then((userData) => {
       postData("/add", { date: newDate, temp: userData.main.temp, content });
     })
-    .then(function (newData) {
+    .then(() => {
       updateUI();
     });
 });
 
 /* Web API function*/
-const getWeather = async (baseURL, newZip, units, apiKey) => {
-  const res = await fetch(baseURL + newZip + units + apiKey);
+const getWeather = async (baseURL, newCity, units, apiKey) => {
+  const res = await fetch(baseURL + newCity + units + apiKey);
   try {
     const userData = await res.json();
     return userData;
@@ -60,8 +60,12 @@ const updateUI = async () => {
   const request = await fetch("/all");
   try {
     const allData = await request.json();
-    document.getElementById("date").innerHTML = allData.date;
-    document.getElementById("temp").innerHTML = allData.temp;
+    document.getElementById(
+      "date"
+    ).innerHTML = `<i class="material-icons" id="date_icon">date_range</i> ${allData.date}`;
+    document.getElementById(
+      "temp"
+    ).innerHTML = `<i class="material-icons" id="temp_icon">wb_sunny</i> ${allData.temp}°C`;
     document.getElementById("content").innerHTML = allData.content;
   } catch (error) {
     console.log("error", error);
